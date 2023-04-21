@@ -1,0 +1,80 @@
+.storeHeader{
+    width: 100vw;
+    height: 80px;
+    background-color: #ec2929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links{
+    display: flex;
+    width: 280px;
+    height: 50px;
+    /* border: 1px solid blue; */
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -100px;
+}
+
+.links a{
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 200;
+    padding: 10px;
+}
+
+.links a:hover{
+    text-decoration: underline;
+}
+
+.header2{
+    height: 50px;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header2 img{
+    width: 35px;
+    height: 35px;
+    margin-bottom: -5px;
+}
+
+.header2 h4{
+    font-size: 22px;
+    color: #fff;
+}
+
+.Menu{
+    cursor: pointer;
+    position: relative;
+}
+
+.Menu .box{
+    position: absolute;
+    top: 130%;
+    left: -1600%;
+    display: none;
+    border: 1px solid red;
+    width: 400px;
+    height: 250px;
+}
+
+.Menu:hover .box{
+    display: block;
+    padding: 50px;
+    margin-top: 20px;
+}

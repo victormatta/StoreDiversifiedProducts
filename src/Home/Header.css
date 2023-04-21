@@ -1,0 +1,28 @@
+.headerStyle{
+    width: 100vw;
+    height: 80px;
+    background-color: #ec2929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    width: 380px;
+    height: 50px;
+    /* border: 1px solid blue; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a{
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 200;
+}
+
+header a:hover{
+    text-decoration: underline;
+}

@@ -1,4 +1,4 @@
-.headerStyle{
+.headerMakeUp{
     width: 100vw;
     height: 100px;
     background-color: #ec2929;
@@ -8,24 +8,24 @@
     margin-top: -15px;
 }
 
-header{
+.makeupHeader{
     display: flex;
     width: 380px;
     height: 50px;
     /* border: 1px solid blue; */
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    padding: 60px;
     margin-left: 12px;
 }
 
-header a{
+.makeupHeader a{
     font-size: 22px;
     color: #fff;
     text-decoration: none;
     font-weight: 200;
 }
 
-header a:hover{
+.makeupHeader a:hover{
     text-decoration: underline;
 }

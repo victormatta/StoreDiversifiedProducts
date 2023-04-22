@@ -9,7 +9,8 @@ export function StoreSection() {
 
   useEffect(() => {
     const acessoriesCarApi = async () => {
-      const url = "https://api.mercadolibre.com/sites/MLB/search?q=acessorios";
+      const url =
+        "https://api.mercadolibre.com/sites/MLB/search?q=veiculosacessorios";
       const response = await fetch(url);
       const data = await response.json();
       setAcessories(data.results.slice(0, 6));
@@ -58,7 +59,7 @@ export function StoreSection() {
           <div className="titleFood">
             <h1>Foods</h1>
           </div>
-          <a href="http://" target="_blank">
+          <a href="/foods">
             <h4>See more</h4>
           </a>
 
@@ -75,7 +76,7 @@ export function StoreSection() {
           <div className="titleMakeup">
             <h1>Make Up</h1>
           </div>
-          <a href="http://" target="_blank">
+          <a href="/makeup">
             <h4>See more</h4>
           </a>
 
@@ -92,7 +93,7 @@ export function StoreSection() {
           <div className="titleDecoration">
             <h1>Most beautiful house</h1>
           </div>
-          <a href="http://" target="_blank">
+          <a href="/housedecoration">
             <h4>See more</h4>
           </a>
 
@@ -109,7 +110,7 @@ export function StoreSection() {
           <div className="titleAcessoriesCar">
             <h1>Car acessories</h1>
           </div>
-          <a href="http://" target="_blank">
+          <a href="/caracessories">
             <h4>See more</h4>
           </a>
 
@@ -118,7 +119,7 @@ export function StoreSection() {
               <div key={acessories.id} className="grid">
                 <img src={acessories.thumbnail} alt={acessories.title} />
                 <h3>{acessories.title}</h3>
-                <h4>{acessories.price}</h4>
+                <h4>R$ {acessories.price}</h4>
               </div>
             ))}
           </div>

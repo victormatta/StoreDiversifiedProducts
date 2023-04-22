@@ -1,15 +1,17 @@
 .sectionStyle{
     display: flex;
     justify-content: center;
+    
 }
 
 section{
     width: 80%;
     height: 100vh;
     /* border: 1px solid blue; */
-    margin-top: 100px;
+    margin-top: 1450px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .grid{
@@ -17,6 +19,7 @@ section{
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     align-items: center;
+    justify-content: center;
 }
 
 .item{
@@ -45,5 +48,14 @@ section{
 }
 
 .item .cart{
-    margin-top: 20px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.titleOffers{
+    display: flex;
+    margin-bottom: 80px;
+    justify-content: center;
+    font-size: 20px;
 }

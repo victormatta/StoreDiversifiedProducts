@@ -20,7 +20,7 @@ export function App() {
           }
         />
         <Route
-          path="/about"
+          path="/home"
           element={
             <>
               <StoreHeader />

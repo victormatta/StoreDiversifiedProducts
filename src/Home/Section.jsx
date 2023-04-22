@@ -18,6 +18,9 @@ export function Section() {
   return (
     <div className="sectionStyle">
       <section>
+        <div className="titleOffers">
+          <h1>Check the offers 😎</h1>
+        </div>
         <div className="grid">
           {mobile.map((item) => (
             <div key={item.id} className="item">

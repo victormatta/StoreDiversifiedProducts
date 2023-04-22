@@ -1,10 +1,11 @@
 .headerStyle{
     width: 100vw;
-    height: 80px;
+    height: 100px;
     background-color: #ec2929;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -15px;
 }
 
 header{

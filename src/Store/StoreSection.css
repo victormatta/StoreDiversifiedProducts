@@ -29,11 +29,11 @@
 
 .gridSection{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(60px, 1fr));
     grid-gap: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 55px;
+    margin-top: 10px;
     margin-bottom: 55px;
 }
 
@@ -60,4 +60,11 @@
 
 .grid h4{
     font-size: 20px;
+}
+
+a{
+    display: flex;
+    color: #ff0000;
+    flex-direction: row-reverse;
+    margin-top: 20px;
 }

@@ -14,7 +14,7 @@ export function StoreHeader() {
         </div>
 
         <div className="links">
-          <a href="">Store</a>
+          <a href="./">Store</a>
           <a href="">Cart</a>
           <a href="">My Profile</a>
         </div>

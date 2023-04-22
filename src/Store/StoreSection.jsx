@@ -4,6 +4,28 @@ import React, { useState, useEffect } from "react";
 export function StoreSection() {
   const [food, setFood] = useState([]);
   const [beautiful, setBeautiful] = useState([]);
+  const [decoration, setDecoration] = useState([]);
+  const [acessories, setAcessories] = useState([]);
+
+  useEffect(() => {
+    const acessoriesCarApi = async () => {
+      const url = "https://api.mercadolibre.com/sites/MLB/search?q=acessorios";
+      const response = await fetch(url);
+      const data = await response.json();
+      setAcessories(data.results.slice(0, 6));
+    };
+    acessoriesCarApi();
+  }, []);
+
+  useEffect(() => {
+    const decorationApi = async () => {
+      const url = "https://api.mercadolibre.com/sites/MLB/search?q=decoracao";
+      const response = await fetch(url);
+      const data = await response.json();
+      setDecoration(data.results.slice(0, 6));
+    };
+    decorationApi();
+  }, []);
 
   useEffect(() => {
     const foodApi = async () => {
@@ -36,6 +58,9 @@ export function StoreSection() {
           <div className="titleFood">
             <h1>Foods</h1>
           </div>
+          <a href="http://" target="_blank">
+            <h4>See more</h4>
+          </a>
 
           <div className="gridSection">
             {food.map((foods) => (
@@ -50,6 +75,9 @@ export function StoreSection() {
           <div className="titleMakeup">
             <h1>Make Up</h1>
           </div>
+          <a href="http://" target="_blank">
+            <h4>See more</h4>
+          </a>
 
           <div className="gridSection">
             {beautiful.map((foods) => (
@@ -57,6 +85,40 @@ export function StoreSection() {
                 <img src={foods.thumbnail} alt={foods.title} />
                 <h3>{foods.title}</h3>
                 <h4>R$ {foods.price}</h4>
+              </div>
+            ))}
+          </div>
+
+          <div className="titleDecoration">
+            <h1>Most beautiful house</h1>
+          </div>
+          <a href="http://" target="_blank">
+            <h4>See more</h4>
+          </a>
+
+          <div className="gridSection">
+            {decoration.map((decoration) => (
+              <div key={decoration.id} className="grid">
+                <img src={decoration.thumbnail} alt={decoration.title} />
+                <h3>{decoration.title}</h3>
+                <h4>R$ {decoration.price}</h4>
+              </div>
+            ))}
+          </div>
+
+          <div className="titleAcessoriesCar">
+            <h1>Car acessories</h1>
+          </div>
+          <a href="http://" target="_blank">
+            <h4>See more</h4>
+          </a>
+
+          <div className="gridSection">
+            {acessories.map((acessories) => (
+              <div key={acessories.id} className="grid">
+                <img src={acessories.thumbnail} alt={acessories.title} />
+                <h3>{acessories.title}</h3>
+                <h4>{acessories.price}</h4>
               </div>
             ))}
           </div>

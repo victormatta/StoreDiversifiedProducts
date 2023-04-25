@@ -1,8 +1,16 @@
 import "./StoreHeader.css";
 import Store from "../assets/store.png";
 import { FaBars } from "react-icons/fa";
+import { MdShoppingBasket } from "react-icons/md";
+import React, { useState } from "react";
 
 export function StoreHeader() {
+  const [fixed, setFixed] = useState(false);
+
+  let handleMouseLeave = () => {
+    setFixed(false);
+  };
+
   return (
     <div className="storeHeader">
       <div className="header">
@@ -15,13 +23,33 @@ export function StoreHeader() {
 
         <div className="links">
           <a href="./"> Mobile Store</a>
-          <a href="">Cart</a>
+          <a href="/cart">
+            <MdShoppingBasket size={30} />
+          </a>
           <a href="">My Profile</a>
         </div>
 
-        <div className="Menu">
+        <div
+          className="Menu"
+          onMouseOver={() => setFixed(true)}
+          onMouseLeave={handleMouseLeave}
+        >
           <FaBars size={24} color="#fff" />
-          <div className="box">HELLO, WORLD!</div>
+          <div className={fixed ? "box fixed" : "box"}>
+            <div className="boxLinksMain">
+              <div className="boxLinks2">
+                <a href="">Profile</a>
+                <a href="">Car</a>
+              </div>
+              <div className="boxLinks">
+                <a href="/">Mobile</a>
+                <a href="/supermarket">Super Market</a>
+                <a href="/makeup">Make Up</a>
+                <a href="/housedecoration">House Decoration</a>
+                <a href="/caracessories">Car Acessories</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

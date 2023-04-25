@@ -1,5 +1,6 @@
 import "./StoreSection.css";
 import React, { useState, useEffect } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 export function StoreSection() {
   const [food, setFood] = useState([]);
@@ -57,9 +58,9 @@ export function StoreSection() {
           </div>
 
           <div className="titleFood">
-            <h1>Foods</h1>
+            <h1>Super Market</h1>
           </div>
-          <a href="/foods">
+          <a href="/supermarket">
             <h4>See more</h4>
           </a>
 
@@ -69,6 +70,11 @@ export function StoreSection() {
                 <img src={foods.thumbnail} alt={foods.title} />
                 <h3>{foods.title}</h3>
                 <h4>R$ {foods.price}</h4>
+                <div className="buy">
+                  <button type="submit">
+                    <FaShoppingCart color="#ff0000" size={20} />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -86,6 +92,9 @@ export function StoreSection() {
                 <img src={foods.thumbnail} alt={foods.title} />
                 <h3>{foods.title}</h3>
                 <h4>R$ {foods.price}</h4>
+                <div className="buy">
+                  <FaShoppingCart color="#ff0000" size={20} />
+                </div>
               </div>
             ))}
           </div>
@@ -103,6 +112,9 @@ export function StoreSection() {
                 <img src={decoration.thumbnail} alt={decoration.title} />
                 <h3>{decoration.title}</h3>
                 <h4>R$ {decoration.price}</h4>
+                <div className="buy">
+                  <FaShoppingCart color="#ff0000" size={20} />
+                </div>
               </div>
             ))}
           </div>
@@ -120,6 +132,9 @@ export function StoreSection() {
                 <img src={acessories.thumbnail} alt={acessories.title} />
                 <h3>{acessories.title}</h3>
                 <h4>R$ {acessories.price}</h4>
+                <div className="buy">
+                  <FaShoppingCart color="#ff0000" size={20} />
+                </div>
               </div>
             ))}
           </div>

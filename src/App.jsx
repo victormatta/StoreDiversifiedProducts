@@ -3,14 +3,14 @@ import { Header } from "./Home/Header";
 import { Section } from "./Home/Section";
 import { StoreHeader } from "./Store/StoreHeader";
 import { StoreSection } from "./Store/StoreSection";
-import { FoodsHeader } from "./assets/Foods/FoodsHeader";
-import { FoodsSection } from "./assets/Foods/FoodsSection";
-import { MakeUpHeader } from "./assets/MakeUp/MakeUpHeader";
-import { MakeUpSection } from "./assets/MakeUp/MakeUpSection";
-import { DecorationHeader } from "./assets/HouseDecoration/DecorationHeader";
-import { DecorationSection } from "./assets/HouseDecoration/DecorationSection";
-import { CarAcessHeader } from "./assets/CarAcessories/CarAcessHeader";
-import { CarAcessSection } from "./assets/CarAcessories/CarAcessSection";
+import { FoodsHeader } from "./Foods/FoodsHeader";
+import { FoodsSection } from "./Foods/FoodsSection";
+import { MakeUpHeader } from "./MakeUp/MakeUpHeader";
+import { MakeUpSection } from "./MakeUp/MakeUpSection";
+import { DecorationHeader } from "./HouseDecoration/DecorationHeader";
+import { DecorationSection } from "./HouseDecoration/DecorationSection";
+import { CarAcessHeader } from "./CarAcessories/CarAcessHeader";
+import { CarAcessSection } from "./CarAcessories/CarAcessSection";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export function App() {
@@ -37,7 +37,7 @@ export function App() {
           }
         />
         <Route
-          path="/foods"
+          path="/supermarket"
           element={
             <>
               <FoodsHeader />

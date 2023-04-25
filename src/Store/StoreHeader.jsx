@@ -1,7 +1,7 @@
 import "./StoreHeader.css";
 import Store from "../assets/store.png";
 import { FaBars } from "react-icons/fa";
-import { MdShoppingBasket } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
 import React, { useState } from "react";
 
 export function StoreHeader() {
@@ -18,14 +18,15 @@ export function StoreHeader() {
           <div className="profileStore">
             <img src={Store} alt="Store Profile" />
           </div>
-          <h4>Nome da Loja</h4>
+          <h4>JVL</h4>
         </div>
 
         <div className="links">
           <a href="./"> Mobile Store</a>
-          <a href="/cart">
-            <MdShoppingBasket size={30} />
-          </a>
+          <div className="search">
+            <input type="text" placeholder="Search Product" />
+            <FaSearch color="grey" />
+          </div>
           <a href="">My Profile</a>
         </div>
 

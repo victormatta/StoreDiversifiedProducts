@@ -1,15 +1,113 @@
 .storeSection{
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    height: 90vh;
     /* border: 1px solid blue; */
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    z-index: 1;
+}
+
+.cartMain{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    flex-direction: row-reverse;
+}
+
+.cartSection{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    width: 400px;
+    height: 700px;
+    /* border: 1px solid yellow; */
+    margin-right: -10px;
+    position: fixed;
+    align-items: center;
+    overflow: auto;
+}
+
+.cartSection h2{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.cartSection img{
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.cartSection p{
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.cartSection h4{
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.priceBuy{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid blue; */
+    justify-content: center;
+    align-items: center;
+}
+
+.priceBuy h3{
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: center;
+    align-items: center;
+}
+
+.priceBuy p{
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: center;
+    font-size: 12px;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #f00;
+    cursor: pointer;
+}
+
+.cartSection ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.cartSection ul li{
+    border: 2px solid #ccc;
+    box-shadow: 10px 2px 10px rgba(172, 172, 172, 0.808);
+    border-radius: 20px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    width: 330px;;
+}
+
+.imgClose{
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgClose button{
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
 }
 
 .section{
-    width: 80%;
-    height: 100vh;
+    width: 60%;
+    height: 100%;
     /* border: 1px solid red; */
     display: flex;
 }
@@ -20,6 +118,7 @@
     width: 100%;
     height: 100px;
     /* border: 1px solid green; */
+    margin-top: 120px;
 }
 
 .titleSection{
@@ -41,7 +140,7 @@
     border: 2px solid #ccc;
     box-shadow: 10px 2px 10px rgba(172, 172, 172, 0.808);
     padding: 20px;
-    height: 308px;
+    height: 338px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -54,7 +153,7 @@
 }
 
 .grid h3{
-    font-size: 12px;
+    font-size: 13.6px;
     margin-bottom: 10px;
 }
 

@@ -19,6 +19,7 @@ section{
     grid-gap: 20px;
     align-items: center;
     justify-content: center;
+    /* margin-top: 1000px; */
 }
 
 .item{
@@ -26,23 +27,24 @@ section{
     box-shadow: 10px 2px 10px rgba(172, 172, 172, 0.808);
     padding: 20px;
     text-align: center;
-    height: 280px;
+    height: 420px;
     width: 400px;
+    /* margin-top: 200px; */
 }
 
-.item img{
+.grid .item img{
     width: 120px;
     height: 120px;
-    margin-bottom: 20px;
+    margin-bottom: 1px;
 }
 
-.item h3{
-    font-size: 16px;
+.grid .item h3{
+    font-size: 15px;
     margin-bottom: 40px;
 }
 
-.item h4{
-    font-size: 24px;
+.grid .item h4{
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -181,4 +183,16 @@ section{
     border: none;
     cursor: pointer;
     margin-top: 30px;
+}
+
+.load{
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 0px; */
+}
+
+.load h1{
+    font-size: 30px;
+    margin-top: -50px;
+    position: fixed;
 }

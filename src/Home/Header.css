@@ -10,7 +10,7 @@
 
 header{
     display: flex;
-    width: 380px;
+    width: 90%;
     height: 50px;
     /* border: 1px solid blue; */
     justify-content: space-between;
@@ -29,3 +29,87 @@ header a{
 header a:hover{
     text-decoration: underline;
 }
+
+.header22{
+    height: 50px;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -40px;
+}
+
+.header22 img{
+    width: 35px;
+    height: 35px;
+    margin-bottom: -10px;
+    margin-top: -20px;
+}
+
+.header22 h4{
+    font-size: 22px;
+    color: #fff;
+}
+
+.profileStoree{
+    margin-top: 10px;
+}
+
+.Menuu{
+    margin-top: 20px;
+    /* display: flex; */
+    /* justify-content: center; */
+    cursor: pointer;
+    position: relative;
+}
+
+.Menuu .boxx{
+    position: absolute;
+    top: -20%;
+    left: -1660%;
+    display: none;
+    background-color: #ec2929;
+    border-top: none;
+    width: 400px;
+    height: 235px;
+}
+
+.fixedd{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.Menuu:hover .boxx{
+    display: block;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.Menuu:hover .boxx a{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+}
+
+.boxLinksMainn{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.boxLinkss{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid blue; */
+    width: 50%;
+}
+
+/* .boxLinks22{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border: 1px solid blue; */
+/* } */

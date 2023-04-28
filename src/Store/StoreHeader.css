@@ -10,7 +10,7 @@
 }
 
 .header{
-    width: 80%;
+    width: 75%;
     height: 100%;
     /* border: 1px solid green; */
     display: flex;
@@ -23,9 +23,8 @@
     width: 780px;
     height: 50px;
     /* border: 1px solid blue; */
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-left: -100px;
 }
 
 .links a{
@@ -52,7 +51,7 @@
 .header2 img{
     width: 35px;
     height: 35px;
-    margin-bottom: -5px;
+    margin-bottom: 5px;
 }
 
 .header2 h4{
@@ -71,7 +70,7 @@
 .Menu .box{
     position: absolute;
     top: -3%;
-    left: -1600%;
+    left: -1660%;
     display: none;
     background-color: #ec2929;
     border-top: none;
@@ -88,7 +87,7 @@
 .Menu:hover .box{
     display: block;
     padding: 10px;
-    margin-top: 25px;
+    margin-top: 8px;
 }
 
 .profileStore{
@@ -104,6 +103,7 @@
 .boxLinksMain{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
 }
 
 .boxLinks{
@@ -120,24 +120,3 @@
     /* border: 1px solid blue; */
 }
 
-.search input{
-    height: 40px;
-    width: 450px;
-    border-radius: 8px;
-    padding: 5px;
-    font-size: 16px;
-    border: none;
-}
-
-.search{
-    width: 500px;
-    height: 40px;
-    /* border: 1px solid blue; */
-    /* margin-right: 0px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-}

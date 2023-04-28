@@ -10,6 +10,12 @@ export function StoreSection() {
   const [acessories, setAcessories] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
+  const handleCartDelete = (index) => {
+    const newCart = [cartItems];
+    newCart.splice(index, 1);
+    setCartItems(newCart);
+  };
+
   const handleItemDelete = (index) => {
     const newItem = [...cartItems];
     newItem.splice(index, 1);
@@ -173,6 +179,11 @@ export function StoreSection() {
       {cartItems.length > 0 && (
         <div className="cartMain">
           <div className="cartSection">
+            <div className="buttonCart">
+              <button type="submit" onClick={handleCartDelete}>
+                <CgClose size={20} />
+              </button>
+            </div>
             <h2>Cart</h2>
             <ul>
               {cartItems.map((item) => (

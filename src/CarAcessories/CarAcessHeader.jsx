@@ -5,8 +5,6 @@ export function CarAcessHeader() {
     <div className="headerCarAcess">
       <div className="carAcessHeader">
         <a href="/home">Store</a>
-        <a href="">Cart</a>
-        <a href="">My Profile</a>
       </div>
     </div>
   );

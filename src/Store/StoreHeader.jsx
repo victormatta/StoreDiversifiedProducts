@@ -1,7 +1,6 @@
 import "./StoreHeader.css";
 import Store from "../assets/store.png";
 import { FaBars } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
 import React, { useState } from "react";
 
 export function StoreHeader() {
@@ -22,12 +21,10 @@ export function StoreHeader() {
         </div>
 
         <div className="links">
-          <a href="./"> Mobile Store</a>
-          <div className="search">
-            <input type="text" placeholder="Search Product" />
-            <FaSearch color="grey" />
-          </div>
-          <a href="">My Profile</a>
+          <a target="_blank" href="./">
+            {" "}
+            Mobile Store
+          </a>
         </div>
 
         <div
@@ -38,10 +35,6 @@ export function StoreHeader() {
           <FaBars size={24} color="#fff" />
           <div className={fixed ? "box fixed" : "box"}>
             <div className="boxLinksMain">
-              <div className="boxLinks2">
-                <a href="">Profile</a>
-                <a href="">Car</a>
-              </div>
               <div className="boxLinks">
                 <a href="/">Mobile</a>
                 <a href="/supermarket">Super Market</a>

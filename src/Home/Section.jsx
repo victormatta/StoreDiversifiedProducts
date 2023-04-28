@@ -1,4 +1,5 @@
 import "./Section.css";
+import { SearchInput } from "../Search/SearchInput";
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
@@ -6,6 +7,26 @@ import { CgClose } from "react-icons/cg";
 export function Section() {
   const [mobile, setMobile] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (text) {
+      setLoading(true);
+      fetch(
+        `https://api.mercadolibre.com/sites/MLB/search?q=celular/search?q=${text}`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setSearchResults(response.results);
+          // console.log(response.results);
+          setLoading(false);
+        });
+    } else {
+      setSearchResults([]);
+    }
+  }, [text]);
 
   const handleItemDelete = (index) => {
     const newItem = [...cartItems];
@@ -24,13 +45,11 @@ export function Section() {
   };
 
   useEffect(() => {
-    const fetchApi = async () => {
-      const url = "https://api.mercadolibre.com/sites/MLB/search?q=celular";
-      const response = await fetch(url);
-      const data = await response.json();
-      setMobile(data.results);
-    };
-    fetchApi();
+    fetch("https://api.mercadolibre.com/sites/MLB/search?q=celular")
+      .then((response) => response.json())
+      .then((response) => {
+        setMobile(response.results);
+      });
   }, []);
 
   return (
@@ -39,19 +58,40 @@ export function Section() {
         <div className="titleOffers">
           <h1>Check the offers 😎</h1>
         </div>
+        <SearchInput value={text} onChange={(search) => setText(search)} />
+        <div className="load">{loading && <h1>Loading...</h1>}</div>
         <div className="grid">
-          {mobile.map((item) => (
-            <div key={item.id} className="item">
-              <img src={item.thumbnail} alt={item.title} />
-              <h3>{item.title}</h3>
-              <h4>R$ {item.price}</h4>
-              <div className="buyy">
-                <button type="submit" onClick={() => handleAddItemCart(item)}>
-                  <FaShoppingCart color="#ff0000" size={20} />
-                </button>
-              </div>
-            </div>
-          ))}
+          {searchResults.length > 0
+            ? searchResults.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))
+            : mobile.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))}
         </div>
       </section>
       {cartItems.length > 0 && (

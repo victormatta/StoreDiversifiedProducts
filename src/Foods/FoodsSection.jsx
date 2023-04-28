@@ -1,4 +1,5 @@
 import "./FoodsSection.css";
+import { SearchInput } from "../Search/SearchInput";
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
@@ -6,6 +7,26 @@ import { CgClose } from "react-icons/cg";
 export function FoodsSection() {
   const [foods, setFoods] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (text) {
+      setLoading(true);
+      fetch(
+        `https://api.mercadolibre.com/sites/MLB/search?q=alimentos/search?q=${text}`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setSearchResults(response.results);
+          // console.log(response.results);
+          setLoading(false);
+        });
+    } else {
+      setSearchResults([]);
+    }
+  }, [text]);
 
   const handleItemDelete = (index) => {
     const newItem = [...cartItems];
@@ -39,19 +60,40 @@ export function FoodsSection() {
         <div className="titleOffers">
           <h1>Check the offers 😎</h1>
         </div>
+        <SearchInput value={text} onChange={(search) => setText(search)} />
+        <div className="load">{loading && <h1>Loading...</h1>}</div>
         <div className="grid">
-          {foods.map((foods) => (
-            <div key={foods.id} className="item">
-              <img src={foods.thumbnail} alt={foods.title} />
-              <h3>{foods.title}</h3>
-              <h4>R$ {foods.price}</h4>
-              <div className="buyy">
-                <button type="submit" onClick={() => handleAddItemCart(foods)}>
-                  <FaShoppingCart color="#ff0000" size={20} />
-                </button>
-              </div>
-            </div>
-          ))}
+          {searchResults.length > 0
+            ? searchResults.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))
+            : foods.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))}
         </div>
       </section>
       {cartItems.length > 0 && (

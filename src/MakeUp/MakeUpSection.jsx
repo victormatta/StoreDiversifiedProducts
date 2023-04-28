@@ -1,4 +1,5 @@
 import "./MakeUpSection.css";
+import { SearchInput } from "../Search/SearchInput";
 import React, { useState, useEffect } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CgClose } from "react-icons/cg";
@@ -6,6 +7,26 @@ import { CgClose } from "react-icons/cg";
 export function MakeUpSection() {
   const [makeup, setMakeUp] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (text) {
+      setLoading(true);
+      fetch(
+        `https://api.mercadolibre.com/sites/MLB/search?q=beleza/search?q=${text}`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setSearchResults(response.results);
+          // console.log(response.results);
+          setLoading(false);
+        });
+    } else {
+      setSearchResults([]);
+    }
+  }, [text]);
 
   const handleItemDelete = (index) => {
     const newItem = [...cartItems];
@@ -39,19 +60,40 @@ export function MakeUpSection() {
         <div className="titleOffers">
           <h1>Check the offers 😎</h1>
         </div>
+        <SearchInput value={text} onChange={(search) => setText(search)} />
+        <div className="load">{loading && <h1>Loading...</h1>}</div>
         <div className="grid">
-          {makeup.map((makeup) => (
-            <div key={makeup.id} className="item">
-              <img src={makeup.thumbnail} alt={makeup.title} />
-              <h3>{makeup.title}</h3>
-              <h4>R$ {makeup.price}</h4>
-              <div className="buyy">
-                <button type="submit" onClick={() => handleAddItemCart(makeup)}>
-                  <FaShoppingCart color="#ff0000" size={20} />
-                </button>
-              </div>
-            </div>
-          ))}
+          {searchResults.length > 0
+            ? searchResults.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))
+            : makeup.map((item) => (
+                <div key={item.id} className="item">
+                  <img src={item.thumbnail} alt={item.title} />
+                  <h3>{item.title}</h3>
+                  <h4>R$ {item.price}</h4>
+                  <div className="buyy">
+                    <button
+                      type="submit"
+                      onClick={() => handleAddItemCart(item)}
+                    >
+                      <FaShoppingCart color="#ff0000" size={20} />
+                    </button>
+                  </div>
+                </div>
+              ))}
         </div>
       </section>
       {cartItems.length > 0 && (
